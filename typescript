@@ -1,0 +1,7 @@
+Script started on 2025-01-25 14:42:59+02:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="70" LINES="8"]
+[?2004h]0;mikko@Kubuntu-Desktop-Kirkanen: ~/Verkko/www/fullstackopen/fullstackopen-part12[01;32mmikko@Kubuntu-Desktop-Kirkanen[00m:[01;34m~/Verkko/www/fullstackopen/fullstackopen-part12[00m$ exitcho "hello"
+[?2004lhello
+[?2004h]0;mikko@Kubuntu-Desktop-Kirkanen: ~/Verkko/www/fullstackopen/fullstackopen-part12[01;32mmikko@Kubuntu-Desktop-Kirkanen[00m:[01;34m~/Verkko/www/fullstackopen/fullstackopen-part12[00m$ echo "hello"xit[K
+[?2004lexit
+
+Script done on 2025-01-25 14:43:05+02:00 [COMMAND_EXIT_CODE="0"]
