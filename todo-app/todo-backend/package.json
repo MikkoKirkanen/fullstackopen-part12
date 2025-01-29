@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "nodemon ./bin/www"
+    "dev": "nodemon ./bin/www",
+    "docker:build": "docker build -t kirkanen-server .",
+    "docker:run": "docker run -p 3000:3000 kirkanen-server"
   },
   "dependencies": {
     "cors": "^2.8.5",
