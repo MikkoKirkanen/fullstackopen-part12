@@ -15,8 +15,17 @@ services:
       MONGO_INITDB_DATABASE: the_database
     volumes: 
       - ./mongo/mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js
+      - ./mongo_data:/data/db
   redis:
     image: redis/redis-stack-server:latest
     ports:
       - 6379:6379
+    command: ['redis-server', '/etc/redis/redis.conf', '--appendonly', 'yes']
+    volumes:
+      - ./redis.conf:/etc/redis/redis.conf
+      - ./redis_data:/data
+
+volumes:
+  mongo_data:
+  redis_data:
 
