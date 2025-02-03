@@ -1,0 +1,27 @@
+include:
+  - todo-backend/docker-compose.dev.yml
+  # - todo-frontend/docker-compose.dev.yml
+services:
+  app:
+    image: frontend-dev
+    container_name: frontend-dev
+    volumes:
+      - ./todo-frontend/:/usr/src/app
+  server:
+    image: express-server
+    container_name: express-server
+    volumes:
+      - ./todo-backend/:/usr/src/app
+    environment:
+      - REDIS_URL=redis://default:password@redis:6379
+      - MONGO_URL=mongodb://the_username:the_password@mongo:27017/the_database
+
+  nginx:
+    image: nginx:1.20.1
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    container_name: reverse-proxy
+    depends_on:
+      - app
