@@ -13,4 +13,7 @@ export default defineConfig({
     globals: true,
     setupFiles: './setupTest.ts',
   },
+  build: {
+    port: 5173,
+  },
 })

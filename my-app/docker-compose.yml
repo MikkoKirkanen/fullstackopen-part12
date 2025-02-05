@@ -1,0 +1,37 @@
+name: kirkanen-phonebook
+
+services:
+  app:
+    image: frontend-phonebook
+    container_name: frontend-phonebook
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    env_file:
+      - frontend/.env
+    volumes:
+      - ./frontend/:/usr/src/app
+    depends_on:
+      - server
+
+  server:
+    image: backend-phonebook
+    container_name: backend-phonebook
+    build:
+      context: .
+      dockerfile: ./backend/Dockerfile
+    env_file:
+      - backend/.env
+    volumes:
+      - ./backend/:/usr/src/app
+
+  nginx:
+    image: nginx:1.20.1
+    container_name: nginx-proxy-phonebook
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+    ports:
+      - 8080:80
+    depends_on:
+      - app
+      - server

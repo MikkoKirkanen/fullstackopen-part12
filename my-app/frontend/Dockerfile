@@ -2,14 +2,16 @@ FROM node:20
 
 WORKDIR /usr/src/app
 
-COPY todo-frontend/ .
+COPY package*.json .
 
 RUN npm ci
 
-RUN npm test
+COPY . .
 
 RUN npm run build
 
+COPY dist .
+
 RUN npm install -g serve
 
-CMD ["serve", "-l", "3001", "dist"]
+CMD ["serve", "dist"]
